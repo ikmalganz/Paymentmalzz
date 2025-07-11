@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malzz Payment</title>
+    <style>
+        :root {
+            --primary-color: #6a0dad;
+            --secondary-color: #9b59b6;
+            --accent-color: #8e44ad;
+            --light-color: #f5e6ff;
+            --dark-color: #4a235a;
+            --text-color: #333;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .payment-section {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        }
+        
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .payment-card {
+            background: linear-gradient(145deg, #f9f9f9, var(--white));
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #eee;
+            text-align: center;
+        }
+        
+        .payment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .payment-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+            display: block;
+        }
+        
+        .payment-name {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .payment-number {
+            background-color: var(--light-color);
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            word-break: break-all;
+        }
+        
+        .copy-btn {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            width: 100%;
+        }
+        
+        .copy-btn:hover {
+            opacity: 0.9;
+        }
+        
+        .copy-btn:active {
+            transform: scale(0.98);
+        }
+        
+        .unavailable {
+            position: relative;
+            opacity: 0.7;
+        }
+        
+        .unavailable::after {
+            content: 'Tidak Tersedia';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-color);
+            font-size: 0.9rem;
+            margin-top: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .payment-methods {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">MALZZ</div>
+            <div class="tagline">Payment Gateway yang Cepat dan Aman</div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section class="payment-section">
+            <h2 class="section-title">Metode Pembayaran</h2>
+            
+            <div class="payment-methods">
+                <div class="payment-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" alt="DANA" class="payment-icon">
+                    <h3 class="payment-name">DANA</h3>
+                    <div class="payment-number" id="dana-number">08816796169</div>
+                    <button class="copy-btn" onclick="copyToClipboard('dana-number')">Salin Nomor</button>
+                </div>
+                
+                <div class="payment-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Gopay_logo.svg" alt="GOPAY" class="payment-icon">
+                    <h3 class="payment-name">GOPAY</h3>
+                    <div class="payment-number" id="gopay-number">08816796169</div>
+                    <button class="copy-btn" onclick="copyToClipboard('gopay-number')">Salin Nomor</button>
+                </div>
+                
+                <div class="payment-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/OVO_Logo_2019.svg" alt="OVO" class="payment-icon">
+                    <h3 class="payment-name">OVO</h3>
+                    <div class="payment-number" id="ovo-number">08816796169</div>
+                    <button class="copy-btn" onclick="copyToClipboard('ovo-number')">Salin Nomor</button>
+                </div>
+                
+                <div class="payment-card unavailable">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg" alt="QRIS" class="payment-icon">
+                    <h3 class="payment-name">QRIS</h3>
+                    <div class="payment-number">Belum Tersedia</div>
+                    <button class="copy-btn" disabled>Salin Kode</button>
+                </div>
+            </div>
+        </section>
+        
+        <section class="payment-section">
+            <h2 class="section-title">Instruksi Pembayaran</h2>
+            <div style="padding: 0 20px;">
+                <ol style="margin-left: 20px; margin-bottom: 15px;">
+                    <li style="margin-bottom: 10px;">Pilih metode pembayaran yang diinginkan</li>
+                    <li style="margin-bottom: 10px;">Salin nomor tujuan pembayaran dengan menekan tombol "Salin Nomor"</li>
+                    <li style="margin-bottom: 10px;">Buka aplikasi pembayaran terkait dan lakukan transfer</li>
+                    <li style="margin-bottom: 10px;">Setelah transfer, simpan bukti pembayaran</li>
+                    <li style="margin-bottom: 10px;">Konfirmasi pembayaran dengan mengirim bukti transfer ke admin</li>
+                </ol>
+                <p style="font-style: italic; text-align: center; color: var(--secondary-color);">Terima kasih telah menggunakan Malzz Payment!</p>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Malzz Payment. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const textToCopy = element.innerText;
+            
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const originalText = element.innerText;
+                element.innerText = 'Tersalin!';
+                element.style.color = 'green';
+                
+                setTimeout(() => {
+                    element.innerText = originalText;
+                    element.style.color = '';
+                }, 2000);
+            }).catch(err => {
+                console.error('Gagal menyalin teks: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
